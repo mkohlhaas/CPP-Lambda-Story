@@ -5,5 +5,5 @@ main()
 {
     const auto oneLam = [](int x) noexcept { return x * 2; };
     const auto twoLam = [](int x) noexcept { return x * 2; };
-    static_assert(!std::is_same<decltype(oneLam), decltype(twoLam)>::value, "must be different!");
+    static_assert(!std::is_same_v<decltype(oneLam), decltype(twoLam)>, "must be different!");
 }

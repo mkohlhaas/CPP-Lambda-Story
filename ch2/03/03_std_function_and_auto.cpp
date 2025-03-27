@@ -8,8 +8,8 @@ main()
 
     const std::function<double(int)> myFunc = [](int a) noexcept -> double { return 2.0 * a; };
 
-    std::cout << "sizeof(myLambda) is " << sizeof(myLambda) << '\n';
-    std::cout << "sizeof(myFunc) is " << sizeof(myFunc) << '\n';
+    std::cout << "sizeof(myLambda) = " << sizeof(myLambda) << '\n';
+    std::cout << "sizeof(myFunc)   = " << sizeof(myFunc) << '\n';
 
-    return myLambda(10) == myFunc(10);
+    std::cout << std::boolalpha << (myLambda(10) == myFunc(10)) << std::endl;
 }
