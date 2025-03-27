@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <functional>
+#include <iostream>
 #include <vector>
 
 int
@@ -18,8 +19,9 @@ main()
     v.push_back(8);
     v.push_back(9);
     const size_t val = std::count_if(v.begin(), v.end(),
-                                     std::bind(std::logical_and<bool>(), std::bind(std::greater<int>(), _1, 2),
-                                               std::bind(std::less_equal<int>(), _1, 6)));
+                                     std::bind(std::logical_and<bool>(),                   //
+                                               std::bind(std::greater<int>(), _1, 2),      //
+                                               std::bind(std::less_equal<int>(), _1, 6))); //
 
-    return val;
+    std::cout << val << '\n';                                                              // 4
 }

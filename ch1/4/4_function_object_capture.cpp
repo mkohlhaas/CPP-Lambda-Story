@@ -5,7 +5,7 @@
 
 struct PrinterEx
 {
-    PrintEx(const std::string &str) : strText(str), numCalls(0)
+    PrinterEx(const std::string &str) : strText(str), numCalls(0)
     {
     }
 
