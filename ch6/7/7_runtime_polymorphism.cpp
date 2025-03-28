@@ -7,6 +7,7 @@ struct Circle
     {
     }
 };
+
 struct Square
 {
     void
@@ -14,6 +15,7 @@ struct Square
     {
     }
 };
+
 struct Triangle
 {
     void
