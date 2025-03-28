@@ -9,5 +9,5 @@ main()
         std::cout << '\n';
     };
 
-    printer(1, 2, 3, "hello", 10.5f);
+    printer(1, 2, 3, "hello", 10.5f); // 1, 2, 3, hello, 10.5,
 }

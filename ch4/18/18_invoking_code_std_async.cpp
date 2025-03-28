@@ -1,6 +1,6 @@
-#include <future>  // for async and future
+#include <future>
 #include <iostream>
-#include <numeric> // for std::iota
+#include <numeric>
 #include <vector>
 
 int
@@ -19,6 +19,7 @@ main()
 
     iotaFuture.get(); // make sure we get the results...
     printThreadID("printing numbers in");
+
     for (const auto &num : numbers)
     {
         std::cout << num << ", ";

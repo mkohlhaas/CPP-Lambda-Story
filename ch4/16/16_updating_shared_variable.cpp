@@ -7,7 +7,10 @@ main()
 {
     int counter = 0;
 
-    const auto               maxThreads = std::thread::hardware_concurrency();
+    const auto maxThreads = std::thread::hardware_concurrency();
+
+    std::cout << "Max threads: " << maxThreads << '\n';
+
     std::vector<std::thread> threads;
     threads.reserve(maxThreads);
     for (size_t tCounter = 0; tCounter < maxThreads; ++tCounter)
@@ -16,9 +19,6 @@ main()
             for (int i = 0; i < 1000; ++i)
             {
                 ++counter;
-                --counter;
-                ++counter;
-                --counter;
             }
         }));
     }
@@ -28,5 +28,5 @@ main()
         thread.join();
     }
 
-    std::cout << counter << '\n';
+    std::cout << counter << '\n'; // 4000
 }

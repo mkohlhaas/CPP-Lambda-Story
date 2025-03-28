@@ -1,4 +1,5 @@
 #include <array>
+#include <iostream>
 
 template <typename Range, typename Func, typename T>
 constexpr T
@@ -19,4 +20,6 @@ main()
     constexpr auto sum = SimpleAccumulate(arr, [](auto i) { return i * i; }, 0);
 
     static_assert(sum == 14);
+
+    std::cout << sum << '\n'; // 14
 }
