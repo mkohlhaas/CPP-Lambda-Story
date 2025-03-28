@@ -12,6 +12,7 @@ class SimpleOverloaded : public TCall, UCall
     using UCall::operator();
 };
 
+// deduce the types of the lambdas
 template <typename TCall, typename UCall>
 SimpleOverloaded<TCall, UCall>
 MakeOverloaded(TCall &&tf, UCall &&uf)

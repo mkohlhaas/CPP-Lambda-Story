@@ -13,7 +13,9 @@ main()
 
     constexpr size_t numElements = sizeof(values) / sizeof(values[0]); // 9
 
+    // qsort is from the C standard library which expects a function pointer
     std::qsort(values, numElements, sizeof(int),
+               // automatic conversion to function pointer
                [](const void *a, const void *b) noexcept { return (*(int *)b - *(int *)a); });
 
     for (const auto &val : values)

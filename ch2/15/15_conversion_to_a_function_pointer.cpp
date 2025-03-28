@@ -14,7 +14,7 @@ main()
         callWith10([](int x) { std::cout << x << '\n'; }); // 10
     }
 
-    // [2]
+    // [2] (this happens underneath)
     {
         struct
         {

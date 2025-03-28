@@ -1,5 +1,7 @@
 #include <iostream>
 
+// IIFE - Immediately Invoked Functional Expression
+
 int
 main()
 {
@@ -11,7 +13,7 @@ main()
     [&]() noexcept {
         ++x;
         ++y;
-    }();
+    }(); // IIFE
 
     std::cout << x << ", " << y << '\n'; // 2, 2
 }

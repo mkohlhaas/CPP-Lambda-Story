@@ -3,13 +3,16 @@
 #include <iostream>
 #include <vector>
 
+using vec_funs = std::vector<std::function<std::string(const std::string &)>>;
+
 int
 main()
 {
-    std::vector<std::function<std::string(const std::string &)>> vecFilters;
+    vec_funs vecFilters;
 
-    size_t     removedSpaceCounter = 0;
-    const auto removeSpaces        = [&removedSpaceCounter](const std::string &str) {
+    size_t removedSpaceCounter = 0;
+
+    const auto removeSpaces = [&removedSpaceCounter](const std::string &str) {
         std::string tmp;
         std::copy_if(str.begin(), str.end(), std::back_inserter(tmp), [](char ch) { return !isspace(ch); });
         removedSpaceCounter += str.length() - tmp.length();
@@ -22,6 +25,7 @@ main()
         return tmp;
     };
 
+    // this time lambda takes arguments
     vecFilters.emplace_back(removeSpaces);
     vecFilters.emplace_back([](const std::string &x) { return x + " Amazing"; });
     vecFilters.emplace_back([](const std::string &x) { return x + " Modern"; });
@@ -37,6 +41,6 @@ main()
         temp = entryFunc(temp);
     }
 
-    std::cout << temp << '\n';                                      // HELLO AMAZING MODERN C++ WORLD!
     std::cout << "removed spaces: " << removedSpaceCounter << '\n'; // removed spaces: 12
+    std::cout << temp << '\n';                                      // HELLO AMAZING MODERN C++ WORLD!
 }

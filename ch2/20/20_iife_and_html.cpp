@@ -9,6 +9,7 @@ validateHTML(const std::string &)
 std::string
 buildAHref(const std::string &link, const std::string &text)
 {
+    // IIFE to initialize a complex const value
     const std::string html = [&link, &text] {
         const auto &inText = text.empty() ? link : text;
         return "<a href=\"" + link + "\">" + inText + "</a>";
