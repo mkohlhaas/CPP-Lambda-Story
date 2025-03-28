@@ -1,10 +1,13 @@
 #include <iostream>
 
+// Capturing a Class Data Member
+
 struct Baz
 {
     auto
     foo() const
     {
+        // capturing a class data member
         return [s = s] { std::cout << s << '\n'; };
     }
 

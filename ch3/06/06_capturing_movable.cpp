@@ -7,6 +7,7 @@ main()
     std::unique_ptr<int> p(new int{10});
     std::cout << "pointer in main(): " << p.get() << '\n'; // pointer in main(): 0x62e40745e2b0
 
+    // pointer is moved into the lambda on lambda creation
     const auto bar = [ptr = std::move(p)] { std::cout << "pointer in lambda: " << ptr.get() << '\n'; };
 
     std::cout << "pointer in main(): " << p.get() << '\n'; // pointer in main(): 0

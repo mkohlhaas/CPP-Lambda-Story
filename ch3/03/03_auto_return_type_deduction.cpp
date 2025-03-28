@@ -1,5 +1,8 @@
 #include <iostream>
 
+// Just use auto for return type deduction of lambdas.
+
+// You can also specify noexcept which is not possible with std::function.
 auto
 CreateMulLambda(int x) noexcept
 {

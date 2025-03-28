@@ -3,7 +3,9 @@
 #include <map>
 #include <string>
 
-using map_str_int = std::map<std::string, int>;
+using map_str_int         = std::map<std::string, int>;
+using map_entry_incorrect = std::pair<std::string, int>;
+using map_entry_correct   = std::pair<const std::string, int>;
 
 int
 main()
@@ -23,9 +25,19 @@ main()
     std::cout << std::endl;
 
     // each time entry is copied from pair<const string, int>!
-    std::for_each(std::begin(numbers),                           //
-                  std::end(numbers),                             //
-                  [](const std::pair<std::string, int> &entry) { //
+    std::for_each(std::begin(numbers),                   //
+                  std::end(numbers),                     //
+                  [](const map_entry_incorrect &entry) { //
+                      std::cout << &entry.first << ", " << &entry.second << ": " << entry.first << " = " << entry.second
+                                << '\n';
+                  });
+
+    std::cout << std::endl;
+
+    // this is the correct type for map entry (no extra copies)
+    std::for_each(std::begin(numbers),                 //
+                  std::end(numbers),                   //
+                  [](const map_entry_correct &entry) { //
                       std::cout << &entry.first << ", " << &entry.second << ": " << entry.first << " = " << entry.second
                                 << '\n';
                   });

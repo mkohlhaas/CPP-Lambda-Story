@@ -17,13 +17,22 @@ foo(float f)
 int
 main()
 {
-    // const std::vector<float> vi{1, 2, 3, 4, 5, 6, 7, 8, 9};
-    const std::vector<int> vi{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    // [1] doesn't work
+    {
+        // const std::vector<int> vi{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        // std::for_each(vi.begin(), vi.end(), foo);              // error: No matching function for call to 'for_each'
+    }
 
-    // [](auto &&x) { return foo(std::forward<decltype(x)>(x)); }); //
-    std::for_each(vi.begin(),                       //
-                  vi.end(),                         //
-                  [](auto &&x) { return foo(x); }); //
+    // [2]
+    {
+        // const std::vector<float> vi{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        const std::vector<int> vi{1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        // [](auto &&x) { return foo(std::forward<decltype(x)>(x)); }); //
+        std::for_each(vi.begin(),                       //
+                      vi.end(),                         //
+                      [](auto &&x) { return foo(x); }); //
+    }
 }
 
 // int: 1

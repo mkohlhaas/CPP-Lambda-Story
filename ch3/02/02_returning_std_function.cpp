@@ -1,6 +1,8 @@
 #include <functional>
 #include <iostream>
 
+// Before C++14 you could use std::function for the return type.
+
 std::function<int(int)>
 CreateMulLambda(int x)
 {

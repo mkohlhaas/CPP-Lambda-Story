@@ -17,6 +17,9 @@ sum(T1 s, T... ts)
 int
 main()
 {
+    // generic lambdas with auto captures and
+    // variadic generic arguments
+    // auto... = variadic argument pack
     const auto sumLambda = [](auto... args) {
         std::cout << "sum of: " << sizeof...(args) << " numbers\n";
         return sum(args...);
