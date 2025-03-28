@@ -9,7 +9,9 @@ struct Product
 int
 main()
 {
-    const auto            idCmp = [](const auto &a) noexcept { return a.id != 0; };
-    Product               p{10, 10.0, idCmp};
+    const auto idCmp = [](const auto &a) noexcept { return a.id != 0; };
+
+    Product p{10, 10.0, idCmp};
+
     [[maybe_unused]] auto p2 = p;
 }

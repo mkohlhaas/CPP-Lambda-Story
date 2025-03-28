@@ -14,6 +14,7 @@ struct Circle
     {
         std::cout << "drawing circle\n";
     }
+
     size_t
     getVertCount() const
     {
@@ -29,6 +30,7 @@ struct Square
         std::cout << "drawing square\n";
     }
     size_t
+
     getVertCount() const
     {
         return 4;
@@ -39,8 +41,10 @@ int
 main()
 {
     const auto RenderCaller = [](IRenderable auto &obj) { obj.render(); };
-    Circle     c;
-    RenderCaller(c);
+
+    Circle c;
+    RenderCaller(c); // drawing circle
+
     Square s;
-    RenderCaller(s);
+    RenderCaller(s); // drawing square
 }

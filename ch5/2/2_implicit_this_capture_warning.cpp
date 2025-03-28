@@ -1,8 +1,5 @@
-#include <algorithm>
 #include <functional>
 #include <iostream>
-#include <memory>
-#include <vector>
 
 struct Baz
 {
@@ -20,6 +17,7 @@ main()
 {
     auto f1 = Baz{"ala"}.foo();
     auto f2 = Baz{"ula"}.foo();
-    f1();
-    f2();
+
+    f1(); // ula
+    f2(); // ula
 }

@@ -1,15 +1,19 @@
+#include <iostream>
 #include <string>
 #include <tuple>
 
 auto
-GetParams()
+getParams()
 {
     return std::tuple{std::string{"Hello World"}, 42};
 }
 int
+
 main()
 {
-    auto [x, y]            = GetParams();
-    const auto ParamLength = [&x, &y]() { return x.length() + y; }();
-    return ParamLength;
+    auto [x, y] = getParams();
+
+    const auto paramLength = [&x, &y]() { return x.length() + y; }();
+
+    std::cout << paramLength << '\n'; // 53
 }

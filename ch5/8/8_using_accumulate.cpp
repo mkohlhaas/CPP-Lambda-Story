@@ -1,4 +1,5 @@
 #include <array>
+#include <iostream>
 #include <numeric>
 
 int
@@ -8,5 +9,6 @@ main()
 
     // with constexpr lambda
     static_assert(std::accumulate(begin(arr), end(arr), 0, [](auto a, auto b) noexcept { return a + b; }) == 55);
-    return arr[0];
+
+    std::cout << arr[0] << '\n'; // 1
 }
