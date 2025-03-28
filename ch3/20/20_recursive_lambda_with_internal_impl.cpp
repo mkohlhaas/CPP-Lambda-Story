@@ -1,3 +1,5 @@
+#include <iostream>
+
 int
 main()
 {
@@ -5,5 +7,6 @@ main()
         const auto f_impl = [](int n, const auto &impl) noexcept -> int { return n > 1 ? n * impl(n - 1, impl) : 1; };
         return f_impl(n, f_impl);
     };
-    return factorial(5);
+
+    std::cout << factorial(5) << '\n';
 }

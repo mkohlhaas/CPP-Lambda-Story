@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 
 struct Baz
@@ -17,6 +16,7 @@ main()
 {
     const auto f1 = Baz{"abc"}.foo();
     const auto f2 = Baz{"xyz"}.foo();
-    f1();
-    f2();
+
+    f1(); // abc
+    f2(); // xyz
 }

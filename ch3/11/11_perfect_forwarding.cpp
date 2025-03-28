@@ -6,6 +6,7 @@ foo(const std::string &)
 {
     std::cout << "foo(const string&)\n";
 }
+
 void
 foo(std::string &&)
 {
@@ -21,6 +22,12 @@ main()
     };
 
     const std::string str = "Hello World";
+
     callFoo(str);
-    callFoo("Hello World Ref Ref");
+    // Calling foo() on: Hello World
+    // foo(const string&)
+
+    callFoo("Hello World &&");
+    // Calling foo() on: Hello World &&
+    // foo(string&&)
 }

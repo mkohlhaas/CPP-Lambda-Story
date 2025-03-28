@@ -1,3 +1,5 @@
+#include <iostream>
+
 int
 factorial(int n)
 {
@@ -7,5 +9,5 @@ factorial(int n)
 int
 main()
 {
-    return factorial(5);
+    std::cout << factorial(5) << '\n'; // 120
 }

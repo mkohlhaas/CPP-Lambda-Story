@@ -12,7 +12,6 @@ main()
 {
     const auto lam = CreateMulLambda(10);
 
-    std::cout << sizeof(lam);
-
-    return lam(2);
+    std::cout << sizeof(lam) << '\n'; // 32
+    std::cout << lam(2) << '\n';      // 20
 }
