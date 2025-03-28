@@ -14,6 +14,6 @@ main()
     int x = 10;
     for (const auto &entry : ptrFuncVec)
     {
-        entry(x);
+        entry(x); // 10 20
     }
 }

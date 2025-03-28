@@ -11,7 +11,7 @@ class ComplexFn : public Callable
 
 template <typename Callable>
 ComplexFn<Callable>
-MakeComplexFunctionObject(Callable &&cal)
+makeComplexFunctionObject(Callable &&cal)
 {
     return ComplexFn<Callable>(std::forward<Callable>(cal));
 }
@@ -19,6 +19,6 @@ MakeComplexFunctionObject(Callable &&cal)
 int
 main()
 {
-    const auto func = MakeComplexFunctionObject([]() { std::cout << "Hello Complex Function Object!"; });
-    func();
+    const auto func = makeComplexFunctionObject([]() { std::cout << "Hello Complex Function Object!"; });
+    func(); // Hello Complex Function Object!
 }

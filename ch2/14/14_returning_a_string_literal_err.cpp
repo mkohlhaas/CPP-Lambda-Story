@@ -1,12 +1,11 @@
 // this code doesn't compile, intentionally
 
 #include <iostream>
-#include <string>
 
 int
 main()
 {
-    const auto testSpeedString = [](int speed) noexcept {
+    const auto testSpeedString = [](int speed) noexcept { // int -> const char *
         if (speed > 100)
         {
             return "you're a super fast";
@@ -15,10 +14,8 @@ main()
         return "you're a regular";
     };
 
-    auto str = testSpeedString(100);
-    str += " driver"; // oops! no += on const char*!
+    auto str = testSpeedString(100); // const char *
+    str += " driver";                // oops!
 
     std::cout << str;
-
-    return 0;
 }

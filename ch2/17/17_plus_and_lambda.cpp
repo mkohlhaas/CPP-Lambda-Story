@@ -4,5 +4,6 @@ int
 main()
 {
     auto funcPtr = +[] {};
-    static_assert(std::is_same<decltype(funcPtr), void (*)()>::value);
+
+    static_assert(std::is_same_v<decltype(funcPtr), void (*)()>);
 }

@@ -1,36 +1,44 @@
 #include <iostream>
 
 void
-callWith10(void (*bar)(int))
+callWith10(void (*fn)(int))
 {
-    bar(10);
+    fn(10);
 }
 
 int
 main()
 {
-    struct
+    // [1]
     {
-        using f_ptr = void (*)(int);
+        callWith10([](int x) { std::cout << x << '\n'; }); // 10
+    }
 
-        void
-        operator()(int s) const
+    // [2]
+    {
+        struct
         {
-            return call(s);
-        }
-        operator f_ptr() const
-        {
-            return &call;
-        }
+            // void
+            // operator()(int s) const
+            // {
+            //     return call(s);
+            // }
 
-      private:
-        static void
-        call(int s)
-        {
-            std::cout << s << '\n';
-        };
-    } baz;
+            using f_ptr = void (*)(int);
 
-    callWith10(baz);
-    callWith10([](int x) { std::cout << x << '\n'; });
+            operator f_ptr() const
+            {
+                return &call;
+            }
+
+          private:
+            static void
+            call(int s)
+            {
+                std::cout << s << '\n';
+            };
+        } baz;
+
+        callWith10(baz); // 10
+    }
 }

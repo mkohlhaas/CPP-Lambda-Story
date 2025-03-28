@@ -13,5 +13,6 @@ main()
             return x * 2.1;
         }
     };
-    static_assert(std::is_same<double, decltype(baz(10))>::value, "has to be the same!");
+
+    static_assert(std::is_same_v<double, decltype(baz(10))>, "has to be the same!");
 }

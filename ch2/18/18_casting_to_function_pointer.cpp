@@ -8,6 +8,12 @@ call_function(F f)
 int
 main()
 {
-    call_function(static_cast<int (*)(int)>([](int x) { return x + 2; }));
-    call_function(static_cast<int (*)(int)>([](int x) { return x * 2; }));
+    auto plus = [](int x) { return x + 2; }; // int -> int
+    auto mult = [](int x) { return x * 2; }; // int -> int
+
+    call_function(plus);
+    call_function(mult);
+
+    call_function(static_cast<int (*)(int)>(plus));
+    call_function(static_cast<int (*)(int)>(mult));
 }

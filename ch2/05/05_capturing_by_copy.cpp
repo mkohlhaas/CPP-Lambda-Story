@@ -8,8 +8,9 @@ main()
     int x = 1;
     int y = 1;
 
-    print("in main()", x, y);            // in main(): 1 1
+    print("in main()", x, y); // in main(): 1 1
 
+    // auto foo = [&x, &y, print]() mutable { //
     auto foo = [x, y, print]() mutable { //
         ++x;
         ++y;

@@ -16,13 +16,13 @@ template <typename TCall, typename UCall>
 SimpleOverloaded<TCall, UCall>
 MakeOverloaded(TCall &&tf, UCall &&uf)
 {
-    return SimpleOverloaded<TCall, UCall>(std::forward<TCall> tf, std::forward<UCall> uf);
+    return SimpleOverloaded<TCall, UCall>(std::forward<TCall>(tf), std::forward<UCall>(uf));
 }
 
 int
 main()
 {
     const auto func = MakeOverloaded([](int) { std::cout << "Int!\n"; }, [](float) { std::cout << "Float!\n"; });
-    func(10);
-    func(10.0f);
+    func(10);    // Int!
+    func(10.0f); // Float!
 }

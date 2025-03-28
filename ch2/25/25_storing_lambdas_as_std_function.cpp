@@ -29,13 +29,14 @@ main()
     vecFilters.emplace_back([](const std::string &x) { return x + " World!"; });
     vecFilters.emplace_back(makeUpperCase);
 
-    const std::string str  = "   H e l l o     ";
-    auto              temp = str;
+    const std::string str = "   H e l l o     ";
+
+    auto temp = str;
     for (const auto &entryFunc : vecFilters)
     {
         temp = entryFunc(temp);
     }
-    std::cout << temp;
 
-    std::cout << "\nremoved spaces: " << removedSpaceCounter << '\n';
+    std::cout << temp << '\n';                                      // HELLO AMAZING MODERN C++ WORLD!
+    std::cout << "removed spaces: " << removedSpaceCounter << '\n'; // removed spaces: 12
 }
