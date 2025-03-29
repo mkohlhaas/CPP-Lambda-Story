@@ -1,10 +1,15 @@
 #include <iostream>
 #include <memory>
 
+// cp. ../ch2/12/12_capturing_a_variadic_pack.cpp
+// cp. ../ch4/12/12_printing_elements_without.cpp
+
 template <class First, class... Args>
 void
 captureTest(First &&first, Args &&...args)
 {
+    //                                             pack expansion in lambda init-capture
+    //                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     const auto printer = [first = std::move(first), ... capturedArgs = std::move(args)] {
         std::cout << first;
         ((std::cout << ", " << capturedArgs), ...);

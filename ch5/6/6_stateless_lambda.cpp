@@ -2,6 +2,8 @@
 #include <set>
 #include <string>
 
+// Default Constructible Lambdas
+
 struct Product
 {
     std::string name;
@@ -12,6 +14,7 @@ struct Product
 int
 main()
 {
+    // stateless lambdas are default constructable
     const auto nameCmp = [](const auto &a, const auto &b) { return a.name < b.name; };
 
     const std::set<Product, decltype(nameCmp)> prodSet{

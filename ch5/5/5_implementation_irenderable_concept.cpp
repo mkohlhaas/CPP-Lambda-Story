@@ -1,6 +1,8 @@
 #include <concepts>
 #include <iostream>
 
+// Template Lambdas
+
 template <typename T>
 concept IRenderable = requires(T v) {
     { v.render() } -> std::same_as<void>;
@@ -40,6 +42,7 @@ struct Square
 int
 main()
 {
+    // generic lambda (restrict auto to IRenderable in this case)
     const auto RenderCaller = [](IRenderable auto &obj) { obj.render(); };
 
     Circle c;

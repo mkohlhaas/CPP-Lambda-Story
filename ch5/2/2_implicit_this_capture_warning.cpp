@@ -6,7 +6,9 @@ struct Baz
     std::function<void()>
     foo()
     {
-        return [=] { std::cout << s << std::endl; };
+        // Implicit capture of 'this' with a capture default of '=' is deprecated
+        // return [=] { std::cout << s << std::endl; };
+        return [=, *this] { std::cout << s << std::endl; };
     }
 
     std::string s;
@@ -18,6 +20,6 @@ main()
     auto f1 = Baz{"ala"}.foo();
     auto f2 = Baz{"ula"}.foo();
 
-    f1(); // ula
+    f1(); // ala
     f2(); // ula
 }

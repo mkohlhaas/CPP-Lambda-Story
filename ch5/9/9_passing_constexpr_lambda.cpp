@@ -11,7 +11,8 @@ countValues(auto container, auto cmp)
 int
 main()
 {
-    constexpr auto minVal = countValues(std::array{-10, 6, 8, 4, -5, 2, 4, 6}, [](auto a) { return a >= 0; });
+    constexpr auto minVal = countValues(std::array{-10, 6, 8, 4, -5, 2, 4, 6}, //
+                                        [](auto a) { return a >= 0; });        //
 
-    std::cout << minVal << '\n'; // 6
+    std::cout << minVal << '\n';                                               // 6
 }

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <tuple>
 
+// cp. ../ch5/4/4_capturing_variadic_pack.cpp
+// cp. ../ch4/12/12_printing_elements_without.cpp
+
 template <class... Args>
 void
 captureTest(Args... args)
