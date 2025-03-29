@@ -16,7 +16,7 @@ main()
     for (size_t tCounter = 0; tCounter < maxThreads; ++tCounter)
     {
         threads.push_back(std::thread([&counter]() noexcept {
-            for (int i = 0; i < 1000; ++i)
+            for (int i = 0; i < 10000; ++i)
             {
                 counter.fetch_add(1);
             }
@@ -28,5 +28,5 @@ main()
         thread.join();
     }
 
-    std::cout << counter.load() << '\n'; // 4000
+    std::cout << counter.load() << '\n'; // 40000
 }

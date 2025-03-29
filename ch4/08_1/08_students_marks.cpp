@@ -16,6 +16,19 @@ using name    = std::string;
 using marks   = std::vector<mark>;
 using Student = std::pair<marks, name>;
 
+auto
+ComputeAverages(const std::vector<Student> &db)
+{
+    std::vector<std::pair<double, std::string>> averages;
+
+    for (auto &[marks, name] : db)
+    {
+        double avg = std::accumulate(marks.begin(), marks.end(), 0.0) / marks.size();
+        averages.push_back({avg, name});
+    }
+    return averages;
+}
+
 int
 main()
 {
@@ -25,13 +38,7 @@ main()
         {{2.0, 3.0, 7.0, 3.0}, "Jane"},
     };
 
-    std::vector<std::pair<double, std::string>> averages;
-
-    for (auto &[marks, name] : db)
-    {
-        double avg = std::accumulate(marks.begin(), marks.end(), 0.0) / marks.size();
-        averages.push_back({avg, name});
-    }
+    auto averages = ComputeAverages(db);
 
     for (const auto &[avg, name] : averages)
     {

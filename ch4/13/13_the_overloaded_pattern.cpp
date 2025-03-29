@@ -1,11 +1,14 @@
 #include <iostream>
 
+// Overloaded Pattern
+
 template <class... Ts>
 struct overloaded : Ts...
 {
     using Ts::operator()...;
 };
 
+// not needed in C++20:
 // template <class... Ts>
 // overloaded(Ts...) -> overloaded<Ts...>;
 

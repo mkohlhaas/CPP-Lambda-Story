@@ -3,6 +3,7 @@
 int
 main()
 {
+    // remove trailing comma
     const auto printer = [](auto first, auto... args) {
         std::cout << first;
         ((std::cout << ", " << args), ...);

@@ -5,7 +5,7 @@ template <typename Callable>
 void
 CallWith22(Callable &&fn)
 {
-    if constexpr (std::is_nothrow_invocable_v<Callable, int>)
+    if constexpr (std::is_nothrow_invocable_v<Callable, int>) // noexcept function?
     {
         std::cout << "Calling fn(22) with optimisation\n";
         fn(22);

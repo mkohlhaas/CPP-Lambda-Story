@@ -1,6 +1,12 @@
 #include <iostream>
 
+// advice: make everything constexpr
+
+// if you remove references (pass-by-value)
+// capture of x in line 11 superfluous as it
+// will be optimised away. Try it!
 constexpr int
+// add(int const t, int const u)
 add(int const &t, int const &u)
 {
     return t + u;
